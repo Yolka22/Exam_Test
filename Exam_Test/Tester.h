@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Tester : public People
+class Tester : protected People
     
 {
 };

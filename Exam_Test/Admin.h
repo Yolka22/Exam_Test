@@ -7,7 +7,7 @@
 using namespace std;
 
 
-class Admin : public People
+class Admin : protected People
    
 {
 };

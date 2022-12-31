@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="Admin.h" />
     <ClInclude Include="People.h" />
+    <ClInclude Include="Task.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Tester.h" />
   </ItemGroup>

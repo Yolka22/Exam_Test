@@ -13,4 +13,13 @@ int main()
     admin.Read();
 
     admin.Show();
+
+
+    Test math_test;
+    Test test;
+
+    
+    math_test.Read("math_test.txt");
+    math_test.Show();
+
 }

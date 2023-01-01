@@ -4,5 +4,9 @@
 class Tester : protected People
     
 {
+public:
+
+
+
 };
 

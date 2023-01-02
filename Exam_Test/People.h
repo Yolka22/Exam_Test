@@ -62,8 +62,8 @@ public:
 		return type;
 	}
 
-	virtual void Save() = 0;
+	/*virtual void Save() = 0;
 	virtual void Read() = 0;
-	virtual void Show() = 0;
+	virtual void Show() = 0;*/
 };
 

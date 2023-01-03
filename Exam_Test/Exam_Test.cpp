@@ -29,7 +29,8 @@ Entry_start:
             admin.Menu_admin();
         }
         else {
-            admin.Menu_admin();
+
+            admin.verification();
         }
        
     }

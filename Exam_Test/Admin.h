@@ -61,6 +61,7 @@ public:
 	void Read();
 	void Show();
 	void CreatAdm(Admin& ad);
+	void verification();
 	void Menu_admin();
 };
 

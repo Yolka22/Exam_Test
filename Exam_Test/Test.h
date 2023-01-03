@@ -1,12 +1,12 @@
 #pragma once
 #include "Task.h"
+
 #include <vector>
 using namespace std;
 
 
 class Test
 {
-
 
 	vector<Task> Task_list;
 
@@ -27,6 +27,7 @@ public:
 		Task tmp_task;
 		string tmp_ans;
 
+
 		if (in.is_open()) {
 
 			while (in >> tmp_task.question >> tmp_task.right_answer) {
@@ -38,7 +39,7 @@ public:
 				}
 
 				Task_list.push_back(tmp_task);
-
+				tmp_task.incorrect_answers.clear();
 			}
 
 			in.close();

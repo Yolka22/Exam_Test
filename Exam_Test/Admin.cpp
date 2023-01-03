@@ -60,3 +60,21 @@ void Admin::Show() {
 	cout << this->password << endl;
 
 }
+void Admin::CreatAdm(Admin&ad) {
+	
+	string _name;
+	string _login;
+	string _password;
+	cout << "Enter name admin: " << endl;
+	getline(cin, _name);
+	cout << "Enter login admin: " << endl;
+	getline(cin, _login);
+	cout << "Enter password admin: " << endl;
+	getline(cin, _password);
+	
+	ad.Set_name(_name);
+	ad.Set_login(_login);
+	ad.Set_password(_password);
+	
+	
+}

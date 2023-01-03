@@ -78,3 +78,6 @@ void Admin::CreatAdm(Admin&ad) {
 	
 	
 }
+void Admin::Menu_admin() {
+
+}

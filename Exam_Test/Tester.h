@@ -1,5 +1,6 @@
  #pragma once
 #include "People.h"
+#include<vector>
 
 class Tester : protected People
     

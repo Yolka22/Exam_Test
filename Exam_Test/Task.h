@@ -1,6 +1,6 @@
 #pragma once
 #include"Test.h"
-#include"Test.h"
+#include"Tester.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -21,7 +21,7 @@ struct Task
 	void Show() {
 		vector<string> shufled;
 		int tester_answer;
-
+		Tester obj;
 		shufled.push_back(right_answer);
 
 		for (size_t i = 0; i < incorrect_answers.size(); i++)
@@ -50,10 +50,12 @@ struct Task
 			if (shufled[tester_answer-1]==right_answer)
 			{
 				cout << "right";
+				obj.point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
+				obj.point_for_answer.push_back(0);
 			}
 
 			
@@ -62,10 +64,12 @@ struct Task
 			if (shufled[tester_answer - 1] == right_answer)
 			{
 				cout << "right";
+				obj.point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
+				obj.point_for_answer.push_back(0);
 			}
 
 			
@@ -74,10 +78,12 @@ struct Task
 			if (shufled[tester_answer - 1] == right_answer)
 			{
 				cout << "right";
+				obj.point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
+				obj.point_for_answer.push_back(0);
 			}
 
 			break;
@@ -85,10 +91,12 @@ struct Task
 			if (shufled[tester_answer - 1] == right_answer)
 			{
 				cout << "right";
+				obj.point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
+				obj.point_for_answer.push_back(0);
 			}
 
 			

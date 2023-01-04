@@ -60,3 +60,41 @@ void Admin::Show() {
 	cout << this->password << endl;
 
 }
+void Admin::CreatAdm(Admin&ad) {
+	
+	string _name;
+	string _login;
+	string _password;
+	cout << "Enter name admin: " << endl;
+	getline(cin, _name);
+	cout << "Enter login admin: " << endl;
+	getline(cin, _login);
+	cout << "Enter password admin: " << endl;
+	getline(cin, _password);
+	
+	ad.Set_name(_name);
+	ad.Set_login(_login);
+	ad.Set_password(_password);
+	
+	
+}
+void Admin::verification() {
+	string _login;
+	string _password;
+Start:
+	cout << "Enter login admin: " << endl;
+	getline(cin, _login);
+
+	cout << "Enter password admin: " << endl;
+	getline(cin, _password);
+	if (this->login == _login && this->password == _password) {
+		Admin::Menu_admin();
+	}
+	else {
+		cout << "Login or password entered incorrectly! " << endl;
+		goto Start;
+	}
+}
+void Admin::Menu_admin() {
+
+}

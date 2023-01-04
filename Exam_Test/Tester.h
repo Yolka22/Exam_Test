@@ -1,10 +1,12 @@
  #pragma once
 #include "People.h"
+#include<vector>
 
 class Tester : protected People
     
 {
 public:
+	vector<int>point_for_answer;
 	Tester(){ 
 		type="tester";
 		name = "name";
@@ -39,15 +41,15 @@ public:
 	}
 
 	string Get_name() {
-		return type;
+		return name;
 	}
 
 	string Get_login() {
-		return type;
+		return login;
 	}
 
 	string Get_password() {
-		return type;
+		return password;
 	}
     void Read(vector<Tester>& mas_tersters);
     void Save(vector<Tester>& mas_tersters);

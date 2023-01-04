@@ -1,1 +1,1 @@
-people name login password 
+admin name login password 

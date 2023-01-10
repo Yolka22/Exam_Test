@@ -55,5 +55,8 @@ public:
     void Save(vector<Tester>& mas_tersters);
     void Show();
 	void CreateTester(vector<Tester>& mas_tersters);
+	bool FindUser(vector<Tester>& mas_testers);
+	void Menu_tester();
+	void verification(vector<Tester>& mas_testers);
 };
 

@@ -1,4 +1,5 @@
 #include "Tester.h"
+#include "Test.h"
 #include <fstream>
 #include "Admin.h"
 #include <iostream>
@@ -18,7 +19,7 @@ void Tester::Save(vector<Tester>& mas_testers) {
 	if (out.is_open()) {
 		for (size_t i = 0; i < mas_testers.size(); i++)
 		{
-         out << mas_testers[i].type<< "\n";
+        out << mas_testers[i].type<< "\n";
 		out << mas_testers[i].name << "\n";
 		out << mas_testers[i].login << "\n";
 		out << mas_testers[i].password << "\n";
@@ -87,4 +88,60 @@ void Tester::CreateTester(vector<Tester>&mas_testers) {
 	getline(cin, _password);
 	Tester *new_tester=new Tester(_type, _name,_login, _password);
 	mas_testers.push_back(*new_tester);
+}
+
+
+void Tester::Menu_tester() {
+	int ans;
+	cout << "1 for start test ";
+	cin >> ans;
+
+	switch (ans)
+	{
+	case 1:
+
+		int choose;
+		cout << "choose category " << endl;
+		cout << "1-math test " << endl;
+		cin >> choose;
+
+		switch (choose)
+		{
+		case 1:
+			Test math_test;
+			math_test.Read("math_test.txt");
+			math_test.Show(); 
+			break;
+		}
+
+
+		break;
+	}
+}
+
+
+
+
+void Tester::verification(vector<Tester>& mas_testers) {
+	string _login;
+	string _password;
+Start:
+	cout << "Enter login teste: " << endl;
+	getline(cin, _login);
+
+	cout << "Enter password teste: " << endl;
+	getline(cin, _password);
+
+	int i = 0;
+	for (i; i < mas_testers.size(); i++)
+	{
+		if (mas_testers[i].login == _login && mas_testers[i].password == _password) {
+			goto Menu;
+		}
+	}
+	cout << "Login or password entered incorrectly! " << endl;
+	goto Start;
+
+
+	Menu:mas_testers[i].Menu_tester();
 }

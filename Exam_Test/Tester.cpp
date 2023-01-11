@@ -67,7 +67,7 @@ void Tester::Read(vector<Tester>& mas_testers) {
 
 }
 
-void Tester::Show() {
+void Tester::Show(Tester tester) {
 
 	cout << this->type << endl;
 	cout <<"Name: " << this->name << endl;
@@ -91,7 +91,7 @@ void Tester::CreateTester(vector<Tester>&mas_testers) {
 }
 
 
-void Tester::Menu_tester() {
+void Tester::Menu_tester(Tester tester) {
 	int ans;
 	cout << "1 for start test ";
 	cin >> ans;
@@ -109,8 +109,11 @@ void Tester::Menu_tester() {
 		{
 		case 1:
 			Test math_test;
+
+			string test_name = "math test";
+
 			math_test.Read("math_test.txt");
-			math_test.Show(); 
+			math_test.Show(tester,test_name);
 			break;
 		}
 
@@ -143,5 +146,5 @@ Start:
 	goto Start;
 
 
-	Menu:mas_testers[i].Menu_tester();
+	Menu:mas_testers[i].Menu_tester(mas_testers[i]);
 }

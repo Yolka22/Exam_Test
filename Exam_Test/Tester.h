@@ -2,11 +2,20 @@
 #include "People.h"
 #include<vector>
 
+
+struct info
+{
+	int mark=0;
+	string test_name;
+};
+
 class Tester : protected People
     
 {
 public:
-	vector<int>point_for_answer;
+	
+	vector<info> info;
+
 	Tester(){ 
 		type="tester";
 		name = "name";
@@ -53,10 +62,9 @@ public:
 	}
     void Read(vector<Tester>& mas_tersters);
     void Save(vector<Tester>& mas_tersters);
-    void Show();
+    void Show(Tester tester);
 	void CreateTester(vector<Tester>& mas_tersters);
-	bool FindUser(vector<Tester>& mas_testers);
-	void Menu_tester();
+	void Menu_tester(Tester tester);
 	void verification(vector<Tester>& mas_testers);
 };
 

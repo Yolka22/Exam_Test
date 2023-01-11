@@ -1,6 +1,6 @@
-  #pragma once
+#pragma once
 #include "Task.h"
-
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -11,7 +11,7 @@ class Test
 	vector<Task> Task_list;
 
 public:
-
+	vector<int>point_for_answer;
 
 	vector<Task> Get_list() {
 
@@ -49,13 +49,39 @@ public:
 	}
 
 
-	void Show() {
+	int perevod_mark() {
+
+		int from_mas = 0;
+
+		for (size_t i = 0; i < point_for_answer.size(); i++)
+		{
+			from_mas += point_for_answer[i];
+		}
+
+		int perevod;
+
+		perevod = (((100 / point_for_answer.size()) * from_mas) * 12) / 100;
+
+		return perevod;
+	}
+
+
+
+	void Show(Tester tester,string name) {
 
 		for (size_t i = 0; i < Task_list.size(); i++)
 		{
-			Task_list[i].Show();
+			Task_list[i].Show(tester, name,point_for_answer);
 
 		}
+
+		info info;
+
+		info.mark = perevod_mark();
+		info.test_name = name;
+
+		tester.info.push_back(info);
+
 	}
 
 };

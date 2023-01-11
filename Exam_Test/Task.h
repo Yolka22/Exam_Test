@@ -6,6 +6,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include "Test.h"
 using namespace std;
 struct Task
 {
@@ -15,13 +16,16 @@ struct Task
 	vector<string> incorrect_answers;
 	
 
-	
 
 
-	void Show() {
+
+
+
+	void Show(Tester tester, string name, vector<int>& point_for_answer) {
+
 		vector<string> shufled;
 		int tester_answer;
-		Tester obj;
+
 		shufled.push_back(right_answer);
 
 		for (size_t i = 0; i < incorrect_answers.size(); i++)
@@ -50,12 +54,12 @@ struct Task
 			if (shufled[tester_answer-1]==right_answer)
 			{
 				cout << "right";
-				obj.point_for_answer.push_back(1);
+				point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
-				obj.point_for_answer.push_back(0);
+				point_for_answer.push_back(0);
 			}
 
 			
@@ -64,12 +68,12 @@ struct Task
 			if (shufled[tester_answer - 1] == right_answer)
 			{
 				cout << "right";
-				obj.point_for_answer.push_back(1);
+				point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
-				obj.point_for_answer.push_back(0);
+				point_for_answer.push_back(0);
 			}
 
 			
@@ -78,12 +82,12 @@ struct Task
 			if (shufled[tester_answer - 1] == right_answer)
 			{
 				cout << "right";
-				obj.point_for_answer.push_back(1);
+				point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
-				obj.point_for_answer.push_back(0);
+				point_for_answer.push_back(0);
 			}
 
 			break;
@@ -91,12 +95,12 @@ struct Task
 			if (shufled[tester_answer - 1] == right_answer)
 			{
 				cout << "right";
-				obj.point_for_answer.push_back(1);
+				point_for_answer.push_back(1);
 			}
 			else
 			{
 				cout << "false";
-				obj.point_for_answer.push_back(0);
+				point_for_answer.push_back(0);
 			}
 
 			
@@ -104,6 +108,12 @@ struct Task
 			break;
 
 		}
+		
+
+		
 	}
 
+	
+
+	
 };

@@ -53,12 +53,10 @@ struct Task
 		case 1:
 			if (shufled[tester_answer-1]==right_answer)
 			{
-				cout << "right";
 				point_for_answer.push_back(1);
 			}
 			else
 			{
-				cout << "false";
 				point_for_answer.push_back(0);
 			}
 
@@ -67,12 +65,11 @@ struct Task
 		case 2:
 			if (shufled[tester_answer - 1] == right_answer)
 			{
-				cout << "right";
 				point_for_answer.push_back(1);
 			}
 			else
 			{
-				cout << "false";
+
 				point_for_answer.push_back(0);
 			}
 
@@ -81,12 +78,12 @@ struct Task
 		case 3:
 			if (shufled[tester_answer - 1] == right_answer)
 			{
-				cout << "right";
+
 				point_for_answer.push_back(1);
 			}
 			else
 			{
-				cout << "false";
+
 				point_for_answer.push_back(0);
 			}
 
@@ -94,12 +91,12 @@ struct Task
 		case 4:
 			if (shufled[tester_answer - 1] == right_answer)
 			{
-				cout << "right";
+
 				point_for_answer.push_back(1);
 			}
 			else
 			{
-				cout << "false";
+
 				point_for_answer.push_back(0);
 			}
 

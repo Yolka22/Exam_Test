@@ -17,6 +17,7 @@ void Tester::Save(vector<Tester>& mas_testers) {
 
 
 	if (out.is_open()) {
+
 		for (size_t i = 0; i < mas_testers.size(); i++)
 		{
         out << mas_testers[i].type<< "\n";

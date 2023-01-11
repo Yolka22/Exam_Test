@@ -62,6 +62,8 @@ public:
 
 		perevod = (((100 / point_for_answer.size()) * from_mas) * 12) / 100;
 
+		cout <<"correct "<< from_mas << " / " << point_for_answer.size()<<endl;
+
 		return perevod;
 	}
 
@@ -78,6 +80,9 @@ public:
 		info info;
 
 		info.mark = perevod_mark();
+
+		cout << "Your mark = " << info.mark;
+
 		info.test_name = name;
 
 		tester.info.push_back(info);

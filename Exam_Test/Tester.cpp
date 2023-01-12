@@ -13,7 +13,7 @@ void Tester::Save(vector<Tester>& mas_testers) {
 	ofstream out;
 
 
-	out.open("Tester.txt", ios::out | ios::binary);
+	out.open("Tester.txt", ios::out |ios::app| ios::binary);
 
 
 	if (out.is_open()) {
@@ -24,6 +24,8 @@ void Tester::Save(vector<Tester>& mas_testers) {
 		out << mas_testers[i].name << "\n";
 		out << mas_testers[i].login << "\n";
 		out << mas_testers[i].password << "\n";
+		/*out << mas_testers[i].info[i].mark << "\n";
+		out << mas_testers[i].info[i].test_name << "\n";*/
 		}
 		
 
@@ -72,8 +74,7 @@ void Tester::Show(Tester tester) {
 
 	cout << this->type << endl;
 	cout <<"Name: " << this->name << endl;
-	/*cout << this->login << endl;
-	cout << this->password << endl;*/
+	
 
 }
 void Tester::CreateTester(vector<Tester>&mas_testers) {

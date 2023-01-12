@@ -44,7 +44,7 @@ struct Task
 		}
 
 
-		cout << "enter your ans";
+		cout << "enter your ans: ";
 		cin >> tester_answer;
 
 

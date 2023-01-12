@@ -54,9 +54,5 @@ Entry_start:
     else {
         goto Entry_start;
     }
-   /* tester1.CreateTester(mas_testers);
-    tester1.Show();*/
-    
-
-
+  
 }

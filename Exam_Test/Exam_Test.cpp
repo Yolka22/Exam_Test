@@ -33,24 +33,32 @@ Entry_start:
             admin.Menu_admin();
         }
         else {
-
+           
             admin.verification();
         }
        
     }
     else if (num == 2) {
-       
-
-        if (mas_testers.size() == 0) {
+        int num1;
+     Start_tester:
+        cout << "Type 1 for register\n";
+        cout << "Type 2 for enter\n";
+        cin >> num1;
+        cin.ignore();
+        if (num1 == 1) {
            tester1.CreateTester(mas_testers);
            new_tested= mas_testers.size();
            tester1.Menu_tester(mas_testers[new_tested - 1]);
            tester1.Save(mas_testers);
 
         }
+        if (num1 == 2) {
+            tester1.verification(mas_testers);
+            tester1.Save(mas_testers);
+        }
         else
         {
-            tester1.verification(mas_testers);
+            goto Start_tester;
         }
     }
     else {

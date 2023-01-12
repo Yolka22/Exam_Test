@@ -13,7 +13,7 @@ void Tester::Save(vector<Tester>& mas_testers) {
 	ofstream out;
 
 
-	out.open("Tester.txt", ios::out |ios::app| ios::binary);
+	out.open("Tester.txt", ios::out | ios::binary);
 
 
 	if (out.is_open()) {

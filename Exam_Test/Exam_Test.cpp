@@ -17,7 +17,7 @@ int main()
     vector<Tester>mas_testers;
     tester1.Read(mas_testers);
 
-
+    int new_tested;
     int num;
 Entry_start:
     cout << "Login as administrator - enter 1: " << endl;
@@ -42,8 +42,10 @@ Entry_start:
        
 
         if (mas_testers.size() == 0) {
-            tester1.CreateTester(mas_testers);
-            tester1.Save(mas_testers);
+           tester1.CreateTester(mas_testers);
+           new_tested= mas_testers.size();
+           tester1.Menu_tester(mas_testers[new_tested - 1]);
+           tester1.Save(mas_testers);
 
         }
         else

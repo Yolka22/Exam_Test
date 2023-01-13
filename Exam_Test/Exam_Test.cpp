@@ -48,11 +48,11 @@ Entry_start:
         if (num1 == 1) {
            tester1.CreateTester(mas_testers);
            new_tested= mas_testers.size();
-           tester1.Menu_tester(mas_testers,new_tested - 1);
+           tester1.Menu_tester(mas_testers,(new_tested - 1));
            tester1.Save(mas_testers);
 
         }
-        if (num1 == 2) {
+        else if (num1 == 2) {
             tester1.verification(mas_testers);
             tester1.Save(mas_testers);
         }

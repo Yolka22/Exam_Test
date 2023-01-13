@@ -4,6 +4,7 @@
 #include "Admin.h"
 #include <iostream>
 #include <vector>
+#include<string>
 
 using namespace std;
 void Tester::Save(vector<Tester>& mas_testers) {
@@ -25,8 +26,13 @@ void Tester::Save(vector<Tester>& mas_testers) {
 		out << mas_testers[i].login << "\n";
 		out << mas_testers[i].password << "\n";
 		out << mas_testers[i].info.size() << "\n";
-		out << mas_testers[i].info[i].mark << "\n";
-		out << mas_testers[i].info[i].test_name << "\n";
+		for (int i = 0; i < mas_testers[i].info.size(); i++)
+		{
+			out << mas_testers[i].info[i].mark << "\n";
+			out << mas_testers[i].info[i].test_name << "\n";
+
+		}
+		
 		}
 		
 
@@ -40,32 +46,22 @@ void Tester::Read(vector<Tester>& mas_testers) {
 
 
 	ifstream in("Tester.txt", ios::in | ios::binary);
-	string tpm_type;
-	string tpm_name;
-	string tpm_login;
-	string tpm_password;
+	string test;
 	int size;
 	if (in.is_open()) {
 
 		Tester *tmp = new Tester();
-		while (!in.eof()) {
-			tpm_type = "";
-			tpm_name = "";
-			tpm_login = "";
-			tpm_password = "";
-			getline(in, tpm_type);
-			getline(in, tpm_name);
-			getline(in, tpm_login);
-			getline(in, tpm_password);
-			tmp->type = tpm_type;
-			tmp->name = tpm_name;
-			tmp->login = tpm_login;
-			tmp->password = tpm_password;
+		
+		while (in>>tmp->type>>tmp->name>>tmp->login>>tmp->password)
+		{
 			in >> size;
+			tmp->info.resize(size);
 			for (int i = 0; i < size; i++)
 			{
 				in >> tmp->info[i].mark;
-				in >> tmp->info[i].test_name;
+				getline(in, test);
+				getline(in, tmp->info[i].test_name);
+				
 			}
 			mas_testers.push_back(*tmp);
 		}
@@ -100,7 +96,7 @@ void Tester::CreateTester(vector<Tester>&mas_testers) {
 }
 
 
-void Tester::Menu_tester(Tester tester) {
+void Tester::Menu_tester(vector<Tester>& mas_testers,int index) {
 	int ans;
 	cout << "1 for start test ";
 	cin >> ans;
@@ -122,7 +118,7 @@ void Tester::Menu_tester(Tester tester) {
 			string test_name = "math test";
 
 			math_test.Read("math_test.txt");
-			math_test.Show(tester,test_name);
+			math_test.Show(mas_testers,test_name,index);
 			
 			break;
 		}
@@ -156,5 +152,5 @@ Start:
 	goto Start;
 
 
-	Menu:mas_testers[i].Menu_tester(mas_testers[i]);
+	Menu:mas_testers[i].Menu_tester(mas_testers,i);
 }

@@ -46,14 +46,18 @@ void Tester::Read(vector<Tester>& mas_testers) {
 
 
 	ifstream in("Tester.txt", ios::in | ios::binary);
-	string test;
+	string test,test1;
+	string tpm_type;
+	string tpm_name;
+	string tpm_login;
+	string tpm_password;
 	int size;
 	if (in.is_open()) {
 
 		Tester *tmp = new Tester();
 		
-		while (in>>tmp->type>>tmp->name>>tmp->login>>tmp->password)
-		{
+		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name),in>> tmp->login>> tmp->password) {
+			
 			in >> size;
 			tmp->info.resize(size);
 			for (int i = 0; i < size; i++)
@@ -65,6 +69,8 @@ void Tester::Read(vector<Tester>& mas_testers) {
 			}
 			mas_testers.push_back(*tmp);
 		}
+			
+		
 
 	}
 
@@ -77,6 +83,10 @@ void Tester::Show(Tester tester) {
 
 	cout << this->type << endl;
 	cout <<"Name: " << this->name << endl;
+	for (size_t i = 0; i < tester.info.size(); i++)
+	{
+        cout << "Test: " << tester.info[i].test_name<<" Mark:  "<<tester.info[i].mark << endl;
+	}
 	
 
 }
@@ -98,7 +108,8 @@ void Tester::CreateTester(vector<Tester>&mas_testers) {
 
 void Tester::Menu_tester(vector<Tester>& mas_testers,int index) {
 	int ans;
-	cout << "1 for start test ";
+	cout << "1 for start test "<<endl;
+	cout << "2 for information about the test "<<endl;
 	cin >> ans;
 
 	switch (ans)
@@ -122,7 +133,8 @@ void Tester::Menu_tester(vector<Tester>& mas_testers,int index) {
 			
 			break;
 		}
-
+	case 2:
+		mas_testers[index].Show(mas_testers[index]);
 
 		break;
 	}

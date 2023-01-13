@@ -48,7 +48,7 @@ Entry_start:
         if (num1 == 1) {
            tester1.CreateTester(mas_testers);
            new_tested= mas_testers.size();
-           tester1.Menu_tester(mas_testers[new_tested - 1]);
+           tester1.Menu_tester(mas_testers,new_tested - 1);
            tester1.Save(mas_testers);
 
         }

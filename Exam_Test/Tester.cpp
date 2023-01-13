@@ -24,8 +24,9 @@ void Tester::Save(vector<Tester>& mas_testers) {
 		out << mas_testers[i].name << "\n";
 		out << mas_testers[i].login << "\n";
 		out << mas_testers[i].password << "\n";
-		/*out << mas_testers[i].info[i].mark << "\n";
-		out << mas_testers[i].info[i].test_name << "\n";*/
+		out << mas_testers[i].info.size() << "\n";
+		out << mas_testers[i].info[i].mark << "\n";
+		out << mas_testers[i].info[i].test_name << "\n";
 		}
 		
 
@@ -43,7 +44,7 @@ void Tester::Read(vector<Tester>& mas_testers) {
 	string tpm_name;
 	string tpm_login;
 	string tpm_password;
-
+	int size;
 	if (in.is_open()) {
 
 		Tester *tmp = new Tester();
@@ -60,6 +61,12 @@ void Tester::Read(vector<Tester>& mas_testers) {
 			tmp->name = tpm_name;
 			tmp->login = tpm_login;
 			tmp->password = tpm_password;
+			in >> size;
+			for (int i = 0; i < size; i++)
+			{
+				in >> tmp->info[i].mark;
+				in >> tmp->info[i].test_name;
+			}
 			mas_testers.push_back(*tmp);
 		}
 
@@ -116,6 +123,7 @@ void Tester::Menu_tester(Tester tester) {
 
 			math_test.Read("math_test.txt");
 			math_test.Show(tester,test_name);
+			
 			break;
 		}
 

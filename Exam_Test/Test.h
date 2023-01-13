@@ -86,7 +86,7 @@ public:
 		info.test_name = name;
 
 		tester.info.push_back(info);
-
+		
 	}
 
 };

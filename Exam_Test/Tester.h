@@ -64,7 +64,7 @@ public:
     void Save(vector<Tester>& mas_tersters);
     void Show(Tester tester);
 	void CreateTester(vector<Tester>& mas_tersters);
-	void Menu_tester(Tester tester);
+	void Menu_tester(vector<Tester>& mas_testers, int index);
 	void verification(vector<Tester>& mas_testers);
 };
 

@@ -1,14 +1,10 @@
 Tested
-Oleksandr Dav
+Davyd
 alex
 123
-1
-12
-math test
+0
 Tested
 Tom Rid
-rewq
-456
-1
-12
-math test
+tom
+147
+0

@@ -59,13 +59,16 @@ void Tester::Read(vector<Tester>& mas_testers) {
 		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name),in>> tmp->login>> tmp->password) {
 			
 			in >> size;
-			tmp->info.resize(size);
+			if (size > 0) {
+            tmp->info.resize(size);
 			for (int i = 0; i < size; i++)
 			{
 				in >> tmp->info[i].mark;
 				getline(in, test);
 				getline(in, tmp->info[i].test_name);
 				
+			}
+			
 			}
 			mas_testers.push_back(*tmp);
 		}

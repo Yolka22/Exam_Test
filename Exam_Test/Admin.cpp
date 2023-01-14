@@ -97,28 +97,35 @@ Start:
 	}
 }
 void Admin::Menu_admin(vector<Tester>& mas_testers) {
-	cout << "Create user - type 1" << endl;
-	cout << "Delete user - type 2" << endl;
-	cout << "Change user - type 3" << endl;
+	
 	string delet_name;
+	Tester new_obj;
 	bool noexit = true;
 	int choise;
-	cin >> choise;
-	cin.ignore();
+	
 	while (noexit)
 	{
+	Begin_menu:
+		cout << "Create user - type 1" << endl;
+		cout << "Delete user - type 2" << endl;
+		cout << "Change user - type 3" << endl;
+		cin >> choise;
+		cin.ignore();
+
 		
 		switch (choise)
 		{
 		case 1:
-		{
-			Tester new_obj;
+		
+			
 			new_obj.CreateTester(mas_testers);
-		}
+			new_obj.Save(mas_testers);
 		break;
 		case 2:
 		{
-			cout << "Enter username to delete" << endl;
+			if (mas_testers.size() != 0) {
+
+             cout << "Enter username to delete" << endl;
 			getline(cin, delet_name);
 			auto it = mas_testers.begin();
 			for (int i = 0; i < mas_testers.size(); i++)
@@ -128,9 +135,16 @@ void Admin::Menu_admin(vector<Tester>& mas_testers) {
 					mas_testers.erase(it);
 				}
 
-			}break;
+			}
+			new_obj.Save(mas_testers);
+			}
+			
+			break;
 		}
+		case 3:
+			break;
 		default:
+			goto Begin_menu;
 			break;
 		}
 

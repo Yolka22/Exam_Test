@@ -109,6 +109,7 @@ void Admin::Menu_admin(vector<Tester>& mas_testers) {
 		cout << "Create user - type 1" << endl;
 		cout << "Delete user - type 2" << endl;
 		cout << "Change user - type 3" << endl;
+		cout << "Exit - type 0" << endl;
 		cin >> choise;
 		cin.ignore();
 

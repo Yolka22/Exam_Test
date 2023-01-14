@@ -19,17 +19,17 @@ void Tester::Save(vector<Tester>& mas_testers) {
 
 	if (out.is_open()) {
 
-		for (size_t i = 0; i < mas_testers.size(); i++)
+		for (int i = 0; i < mas_testers.size(); i++)
 		{
         out << mas_testers[i].type<< "\n";
 		out << mas_testers[i].name << "\n";
 		out << mas_testers[i].login << "\n";
 		out << mas_testers[i].password << "\n";
-		out << mas_testers[i].info.size() << "\n";
-		for (int i = 0; i < mas_testers[i].info.size(); i++)
+		out << mas_testers[i].info.size() << "\n"; 
+		for (int j = 0; j < mas_testers[i].info.size(); j++)
 		{
-			out << mas_testers[i].info[i].mark << "\n";
-			out << mas_testers[i].info[i].test_name << "\n";
+			out << mas_testers[i].info[j].mark << "\n";
+			out << mas_testers[i].info[j].test_name << "\n";
 
 		}
 		
@@ -71,6 +71,7 @@ void Tester::Read(vector<Tester>& mas_testers) {
 			
 			}
 			mas_testers.push_back(*tmp);
+			tmp->info.clear();
 		}
 			
 		
@@ -136,6 +137,7 @@ void Tester::Menu_tester(vector<Tester>& mas_testers,int index) {
 			
 			break;
 		}
+		break;
 	case 2:
 		mas_testers[index].Show(mas_testers[index]);
 

@@ -69,11 +69,11 @@ public:
 
 
 
-	void Show(Tester tester,string name) {
+	void Show(vector<Tester>& mas_testers,string name,int index) {
 
 		for (size_t i = 0; i < Task_list.size(); i++)
 		{
-			Task_list[i].Show(tester, name,point_for_answer);
+			Task_list[i].Show(mas_testers[index], name, point_for_answer);
 
 		}
 
@@ -85,8 +85,8 @@ public:
 
 		info.test_name = name;
 
-		tester.info.push_back(info);
-
+		mas_testers[index].info.push_back(info);
+		
 	}
 
 };

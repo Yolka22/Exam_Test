@@ -1,6 +1,7 @@
 #include <fstream>
 #include "Admin.h"
 #include <iostream>
+#include<vector>
 
 using namespace std;
 
@@ -78,7 +79,7 @@ void Admin::CreatAdm(Admin&ad) {
 	
 	
 }
-void Admin::verification() {
+void Admin::verification(vector<Tester>& mas_testers) {
 	string _login;
 	string _password;
 Start:
@@ -88,13 +89,69 @@ Start:
 	cout << "Enter password admin: " << endl;
 	getline(cin, _password);
 	if (this->login == _login && this->password == _password) {
-		Admin::Menu_admin();
+		Admin::Menu_admin(mas_testers);
 	}
 	else {
 		cout << "Login or password entered incorrectly! " << endl;
 		goto Start;
 	}
 }
-void Admin::Menu_admin() {
+void Admin::Menu_admin(vector<Tester>& mas_testers) {
+	
+	string delet_name;
+	Tester new_obj;
+	bool noexit = true;
+	int choise;
+	
+	while (noexit)
+	{
+	Begin_menu:
+		cout << "Create user - type 1" << endl;
+		cout << "Delete user - type 2" << endl;
+		cout << "Change user - type 3" << endl;
+		cout << "Exit - type 0" << endl;
+		cin >> choise;
+		cin.ignore();
+
+		
+		switch (choise)
+		{
+		case 1:
+		
+			
+			new_obj.CreateTester(mas_testers);
+			new_obj.Save(mas_testers);
+		break;
+		case 2:
+		{
+			if (mas_testers.size() != 0) {
+
+             cout << "Enter username to delete" << endl;
+			getline(cin, delet_name);
+			auto it = mas_testers.begin();
+			for (int i = 0; i < mas_testers.size(); i++)
+			{
+				if (mas_testers[i].Get_name() == delet_name) {
+					advance(it, i);
+					mas_testers.erase(it);
+				}
+
+			}
+			new_obj.Save(mas_testers);
+			}
+			
+			break;
+		}
+		case 3:
+			break;
+		case 0:
+			noexit = false;
+			break;
+		default:
+			goto Begin_menu;
+			break;
+		}
+
+	}
 
 }

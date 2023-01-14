@@ -17,7 +17,7 @@ int main()
     vector<Tester>mas_testers;
     tester1.Read(mas_testers);
 
-
+    int new_tested;
     int num;
 Entry_start:
     cout << "Login as administrator - enter 1: " << endl;
@@ -30,33 +30,39 @@ Entry_start:
         if (admin.Get_password() == "password") {
             admin.CreatAdm(admin);
             admin.Save();
-            admin.Menu_admin();
+            admin.Menu_admin(mas_testers);
         }
         else {
-
-            admin.verification();
+           
+            admin.verification(mas_testers);
         }
        
     }
     else if (num == 2) {
-       
+        int num1;
+     Start_tester:
+        cout << "Type 1 for register\n";
+        cout << "Type 2 for enter\n";
+        cin >> num1;
+        cin.ignore();
+        if (num1 == 1) {
+           tester1.CreateTester(mas_testers);
+           new_tested= mas_testers.size();
+           tester1.Menu_tester(mas_testers,(new_tested - 1));
+           tester1.Save(mas_testers);
 
-        if (mas_testers.size() == 0) {
-            tester1.CreateTester(mas_testers);
+        }
+        else if (num1 == 2) {
+            tester1.verification(mas_testers);
             tester1.Save(mas_testers);
-
         }
         else
         {
-            tester1.verification(mas_testers);
+            goto Start_tester;
         }
     }
     else {
         goto Entry_start;
     }
-   /* tester1.CreateTester(mas_testers);
-    tester1.Show();*/
-    
-
-
+  
 }

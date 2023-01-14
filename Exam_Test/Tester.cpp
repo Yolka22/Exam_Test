@@ -4,6 +4,7 @@
 #include "Admin.h"
 #include <iostream>
 #include <vector>
+#include<string>
 
 using namespace std;
 void Tester::Save(vector<Tester>& mas_testers) {
@@ -18,12 +19,20 @@ void Tester::Save(vector<Tester>& mas_testers) {
 
 	if (out.is_open()) {
 
-		for (size_t i = 0; i < mas_testers.size(); i++)
+		for (int i = 0; i < mas_testers.size(); i++)
 		{
         out << mas_testers[i].type<< "\n";
 		out << mas_testers[i].name << "\n";
 		out << mas_testers[i].login << "\n";
 		out << mas_testers[i].password << "\n";
+		out << mas_testers[i].info.size() << "\n"; 
+		for (int j = 0; j < mas_testers[i].info.size(); j++)
+		{
+			out << mas_testers[i].info[j].mark << "\n";
+			out << mas_testers[i].info[j].test_name << "\n";
+
+		}
+		
 		}
 		
 
@@ -37,29 +46,35 @@ void Tester::Read(vector<Tester>& mas_testers) {
 
 
 	ifstream in("Tester.txt", ios::in | ios::binary);
+	string test,test1;
 	string tpm_type;
 	string tpm_name;
 	string tpm_login;
 	string tpm_password;
-
+	int size;
 	if (in.is_open()) {
 
 		Tester *tmp = new Tester();
-		while (!in.eof()) {
-			tpm_type = "";
-			tpm_name = "";
-			tpm_login = "";
-			tpm_password = "";
-			getline(in, tpm_type);
-			getline(in, tpm_name);
-			getline(in, tpm_login);
-			getline(in, tpm_password);
-			tmp->type = tpm_type;
-			tmp->name = tpm_name;
-			tmp->login = tpm_login;
-			tmp->password = tpm_password;
+		
+		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name),in>> tmp->login>> tmp->password) {
+			
+			in >> size;
+			if (size > 0) {
+            tmp->info.resize(size);
+			for (int i = 0; i < size; i++)
+			{
+				in >> tmp->info[i].mark;
+				getline(in, test);
+				getline(in, tmp->info[i].test_name);
+				
+			}
+			
+			}
 			mas_testers.push_back(*tmp);
+			tmp->info.clear();
 		}
+			
+		
 
 	}
 
@@ -72,8 +87,11 @@ void Tester::Show(Tester tester) {
 
 	cout << this->type << endl;
 	cout <<"Name: " << this->name << endl;
-	/*cout << this->login << endl;
-	cout << this->password << endl;*/
+	for (size_t i = 0; i < tester.info.size(); i++)
+	{
+        cout << "Test: " << tester.info[i].test_name<<" Mark:  "<<tester.info[i].mark << endl;
+	}
+	
 
 }
 void Tester::CreateTester(vector<Tester>&mas_testers) {
@@ -92,9 +110,10 @@ void Tester::CreateTester(vector<Tester>&mas_testers) {
 }
 
 
-void Tester::Menu_tester(Tester tester) {
+void Tester::Menu_tester(vector<Tester>& mas_testers,int index) {
 	int ans;
-	cout << "1 for start test ";
+	cout << "1 for start test "<<endl;
+	cout << "2 for information about the test "<<endl;
 	cin >> ans;
 
 	switch (ans)
@@ -114,10 +133,13 @@ void Tester::Menu_tester(Tester tester) {
 			string test_name = "math test";
 
 			math_test.Read("math_test.txt");
-			math_test.Show(tester,test_name);
+			math_test.Show(mas_testers,test_name,index);
+			
 			break;
 		}
-
+		break;
+	case 2:
+		mas_testers[index].Show(mas_testers[index]);
 
 		break;
 	}
@@ -147,5 +169,5 @@ Start:
 	goto Start;
 
 
-	Menu:mas_testers[i].Menu_tester(mas_testers[i]);
+	Menu:mas_testers[i].Menu_tester(mas_testers,i);
 }

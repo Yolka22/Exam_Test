@@ -1,6 +1,7 @@
 #include <fstream>
 #include "Admin.h"
 #include <iostream>
+#include<vector>
 
 using namespace std;
 
@@ -78,7 +79,7 @@ void Admin::CreatAdm(Admin&ad) {
 	
 	
 }
-void Admin::verification() {
+void Admin::verification(vector<Tester>& mas_testers) {
 	string _login;
 	string _password;
 Start:
@@ -88,13 +89,51 @@ Start:
 	cout << "Enter password admin: " << endl;
 	getline(cin, _password);
 	if (this->login == _login && this->password == _password) {
-		Admin::Menu_admin();
+		Admin::Menu_admin(mas_testers);
 	}
 	else {
 		cout << "Login or password entered incorrectly! " << endl;
 		goto Start;
 	}
 }
-void Admin::Menu_admin() {
+void Admin::Menu_admin(vector<Tester>& mas_testers) {
+	cout << "Create user - type 1" << endl;
+	cout << "Delete user - type 2" << endl;
+	cout << "Change user - type 3" << endl;
+	string delet_name;
+	bool noexit = true;
+	int choise;
+	cin >> choise;
+	cin.ignore();
+	while (noexit)
+	{
+		
+		switch (choise)
+		{
+		case 1:
+		{
+			Tester new_obj;
+			new_obj.CreateTester(mas_testers);
+		}
+		break;
+		case 2:
+		{
+			cout << "Enter username to delete" << endl;
+			getline(cin, delet_name);
+			auto it = mas_testers.begin();
+			for (int i = 0; i < mas_testers.size(); i++)
+			{
+				if (mas_testers[i].Get_name() == delet_name) {
+					advance(it, i);
+					mas_testers.erase(it);
+				}
+
+			}break;
+		}
+		default:
+			break;
+		}
+
+	}
 
 }

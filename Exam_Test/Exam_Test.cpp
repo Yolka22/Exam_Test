@@ -30,11 +30,11 @@ Entry_start:
         if (admin.Get_password() == "password") {
             admin.CreatAdm(admin);
             admin.Save();
-            admin.Menu_admin();
+            admin.Menu_admin(mas_testers);
         }
         else {
            
-            admin.verification();
+            admin.verification(mas_testers);
         }
        
     }

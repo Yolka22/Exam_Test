@@ -1,6 +1,6 @@
 #pragma once
 #include "People.h"
-
+#include"Tester.h"
 
 using namespace std;
 
@@ -61,7 +61,7 @@ public:
 	void Read();
 	void Show();
 	void CreatAdm(Admin& ad);
-	void verification();
-	void Menu_admin();
+	void verification(vector<Tester>& mas_testers);
+	void Menu_admin(vector<Tester>& mas_testers);
 };
 

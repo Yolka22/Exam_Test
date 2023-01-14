@@ -1,0 +1,5 @@
+what is F in physics?
+F = mg
+F = ma
+F = mq
+F = ar

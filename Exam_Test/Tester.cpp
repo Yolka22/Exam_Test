@@ -84,12 +84,11 @@ void Tester::Read(vector<Tester>& mas_testers) {
 }
 
 void Tester::Show(Tester tester) {
-
-	cout << this->type << endl;
+	cout << "Type: " << this->type << endl;
 	cout <<"Name: " << this->name << endl;
 	for (size_t i = 0; i < tester.info.size(); i++)
 	{
-        cout << "Test: " << tester.info[i].test_name<<" Mark:  "<<tester.info[i].mark << endl;
+        cout << "Test: " << tester.info[i].test_name<<endl<<"Mark:  "<<tester.info[i].mark << endl;
 	}
 	
 
@@ -102,7 +101,20 @@ void Tester::CreateTester(vector<Tester>&mas_testers) {
 	cout << "Enter name Tested: " << endl;
 	getline(cin, _name);
 	cout << "Enter login Tested: " << endl;
+
+	Enter_login:
+
 	getline(cin, _login);
+
+	for (size_t i = 0; i < mas_testers.size(); i++)
+	{
+		if (mas_testers[i].Get_login() == _login)
+		{
+			cout << "login already used"<<endl;
+			goto Enter_login;
+		}
+	}
+
 	cout << "Enter password Tested: " << endl;
 	getline(cin, _password);
 	Tester *new_tester=new Tester(_type, _name,_login, _password);
@@ -111,10 +123,21 @@ void Tester::CreateTester(vector<Tester>&mas_testers) {
 
 
 void Tester::Menu_tester(vector<Tester>& mas_testers,int index) {
+
+Tester_menu:
+
 	int ans;
 	cout << "1 for start test "<<endl;
 	cout << "2 for information about the test "<<endl;
+	cout << "3 Exit "<<endl;
 	cin >> ans;
+
+
+	Test math_test;
+	Test phisics_test;
+	string test_name = "test";
+
+
 
 	switch (ans)
 	{
@@ -123,26 +146,48 @@ void Tester::Menu_tester(vector<Tester>& mas_testers,int index) {
 		int choose;
 		cout << "choose category " << endl;
 		cout << "1-math test " << endl;
+		cout << "2-phisics test " << endl;
 		cin >> choose;
 
 		switch (choose)
 		{
 		case 1:
-			Test math_test;
 
-			string test_name = "math test";
+			test_name = "math test";
 
 			math_test.Read("math_test.txt");
 			math_test.Show(mas_testers,test_name,index);
 			
+			goto Tester_menu;
+			break;
+
+
+		case 2:
+
+			test_name = "phisics test";
+
+			phisics_test.Read("phisic_test.txt");
+			phisics_test.Show(mas_testers, test_name, index);
+
+			goto Tester_menu;
 			break;
 		}
-		break;
+
+
+
 	case 2:
 		mas_testers[index].Show(mas_testers[index]);
+		goto Tester_menu;
+		break;
+
+	case 3:
+		
+		int a = 0;
 
 		break;
 	}
+
+
 }
 
 

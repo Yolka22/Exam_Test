@@ -3,6 +3,7 @@
 #include"Test.h"
 #include"People.h"
 #include<vector>
+#include<windows.h>
 
 
 
@@ -22,47 +23,77 @@ int main()
 Entry_start:
     cout << "Login as administrator - enter 1: " << endl;
     cout << "Login as testee - enter 2: " << endl;
+    cout << "Exit 3: " << endl;
     cin >> num;
     cin.ignore();
-    if (num == 1) {
 
-       
-        if (admin.Get_password() == "password") {
-            admin.CreatAdm(admin);
-            admin.Save();
-            admin.Menu_admin(mas_testers);
-        }
-        else {
-           
-            admin.verification(mas_testers);
-        }
-       
-    }
-    else if (num == 2) {
-        int num1;
-     Start_tester:
+    switch (num)
+    {
+    case 1:
+
+            if (admin.Get_password() == "password") {
+                admin.CreatAdm(admin);
+                admin.Save();
+                admin.Menu_admin(mas_testers);
+
+                system("cls");
+                goto Entry_start;
+            }
+            else {
+
+                admin.verification(mas_testers);
+
+                system("cls");
+                goto Entry_start;
+            }
+
+        break;
+
+
+
+    case 2:
+        int choise;
+
+    Start_tester:
+
         cout << "Type 1 for register\n";
         cout << "Type 2 for enter\n";
-        cin >> num1;
+        cin >> choise;
         cin.ignore();
-        if (num1 == 1) {
-           tester1.CreateTester(mas_testers);
-           new_tested= mas_testers.size();
-           tester1.Menu_tester(mas_testers,(new_tested - 1));
-           tester1.Save(mas_testers);
+        
 
-        }
-        else if (num1 == 2) {
+        switch (choise)
+        {
+        case 1:
+
+                tester1.CreateTester(mas_testers);
+                new_tested = mas_testers.size();
+                tester1.Menu_tester(mas_testers, (new_tested - 1));
+                tester1.Save(mas_testers);
+
+                system("cls");
+
+                goto Entry_start;
+
+            break;
+
+
+        case 2:
+
             tester1.verification(mas_testers);
             tester1.Save(mas_testers);
+
+            system("cls");
+
+            goto Entry_start;
+
+            break;
         }
-        else
-        {
-            goto Start_tester;
+
+        
+
         }
+       
     }
-    else {
-        goto Entry_start;
-    }
-  
-}
+
+

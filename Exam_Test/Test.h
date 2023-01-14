@@ -30,11 +30,11 @@ public:
 
 		if (in.is_open()) {
 
-			while (in >> tmp_task.question >> tmp_task.right_answer) {
+			while (getline(in, tmp_task.question), getline(in, tmp_task.right_answer)) {
 
 				for (size_t i = 0; i < 3; i++)
 				{
-					in >> tmp_ans;
+					getline(in, tmp_ans);
 					tmp_task.incorrect_answers.push_back(tmp_ans);
 				}
 
@@ -81,7 +81,7 @@ public:
 
 		info.mark = perevod_mark();
 
-		cout << "Your mark = " << info.mark;
+		cout << "Your mark = " << info.mark<<endl;
 
 		info.test_name = name;
 

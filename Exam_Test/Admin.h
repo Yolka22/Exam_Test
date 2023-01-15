@@ -63,5 +63,6 @@ public:
 	void CreatAdm(Admin& ad);
 	void verification(vector<Tester>& mas_testers);
 	void Menu_admin(vector<Tester>& mas_testers);
+	void Change_user(vector<Tester>& mas_testers);
 };
 

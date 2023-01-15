@@ -96,6 +96,17 @@ Start:
 		goto Start;
 	}
 }
+void Admin::Change_user(vector<Tester>& mas_testers) {
+	int numebr; bool noexit = true;
+	cout << "Change user name - type 1" << endl;
+	cout << "Change user login - type 2" << endl;
+	cout << "Change user password - type 3" << endl;
+	cin >> numebr;
+	while (noexit)
+	{
+		if(number)
+	}
+}
 void Admin::Menu_admin(vector<Tester>& mas_testers) {
 	
 	string delet_name;
@@ -143,6 +154,7 @@ void Admin::Menu_admin(vector<Tester>& mas_testers) {
 			break;
 		}
 		case 3:
+
 			break;
 		case 0:
 			noexit = false;

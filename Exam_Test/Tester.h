@@ -34,7 +34,7 @@ public:
 	}
 
 	void Set_name(string name) {
-		this->type = name;
+		this->name = name;
 	}
 
 	void Set_login(string login) {

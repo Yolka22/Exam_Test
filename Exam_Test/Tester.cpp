@@ -56,7 +56,7 @@ void Tester::Read(vector<Tester>& mas_testers) {
 
 		Tester *tmp = new Tester();
 		
-		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name),in>> tmp->login>> tmp->password) {
+		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name,'\n'), in >> tmp->login >> tmp->password) {
 			
 			in >> size;
 			if (size > 0) {
@@ -65,7 +65,7 @@ void Tester::Read(vector<Tester>& mas_testers) {
 			{
 				in >> tmp->info[i].mark;
 				getline(in, test);
-				getline(in, tmp->info[i].test_name);
+				getline(in, tmp->info[i].test_name,'\r');
 				
 			}
 			

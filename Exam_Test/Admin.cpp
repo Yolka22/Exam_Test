@@ -96,6 +96,72 @@ Start:
 		goto Start;
 	}
 }
+void Admin::Change_user(vector<Tester>& mas_testers) {
+	int number; bool noexit = true;
+	
+	while (noexit)
+	{
+	Start:
+		cout << "Change user name - type 1" << endl;
+		cout << "Change user login - type 2" << endl;
+		cout << "Change user password - type 3" << endl;
+		cout << "Exit - type 0" << endl;
+		cin >> number;
+		cin.ignore();
+		if (number == 1) {
+			cout << "Enter username to change" << endl;
+			string _name;
+			getline(cin, _name);
+			for (int i = 0; i < mas_testers.size(); i++)
+			{
+				if (mas_testers[i].Get_name() == _name) {
+					cout << "Enter  new name " << endl;
+					string _name1;
+					getline(cin, _name1);
+					mas_testers[i].Set_name(_name1);
+				}
+
+			}
+
+		}
+		else if (number == 2) {
+			cout << "Enter username to change" << endl;
+			string _name;
+			getline(cin, _name);
+			for (int i = 0; i < mas_testers.size(); i++)
+			{
+				if (mas_testers[i].Get_name() == _name) {
+					cout << "Enter  new login " << endl;
+					string _login;
+					getline(cin, _login);
+					mas_testers[i].Set_login(_login);
+				}
+
+			}
+		}
+		else if (number == 3) {
+			cout << "Enter username to change" << endl;
+			string _name;
+			getline(cin, _name);
+			for (int i = 0; i < mas_testers.size(); i++)
+			{
+				if (mas_testers[i].Get_name() == _name) {
+					cout << "Enter  new login " << endl;
+					string _password;
+					getline(cin, _password);
+					mas_testers[i].Set_password(_password);
+				}
+
+			}
+		}
+		else if (number == 0) {
+			noexit = false;
+		}
+		else {
+			goto Start;
+		}
+	}
+}
 void Admin::Menu_admin(vector<Tester>& mas_testers) {
 	
 	string delet_name;
@@ -143,8 +209,10 @@ void Admin::Menu_admin(vector<Tester>& mas_testers) {
 			break;
 		}
 		case 3:
+			Admin::Change_user(mas_testers);
 			break;
 		case 0:
+			new_obj.Save(mas_testers);
 			noexit = false;
 			break;
 		default:

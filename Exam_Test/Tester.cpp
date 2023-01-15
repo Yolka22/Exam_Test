@@ -56,7 +56,7 @@ void Tester::Read(vector<Tester>& mas_testers) {
 
 		Tester *tmp = new Tester();
 		
-		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name),in>> tmp->login>> tmp->password) {
+		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name,'\r'), in >> tmp->login >> tmp->password) {
 			
 			in >> size;
 			if (size > 0) {

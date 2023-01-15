@@ -98,15 +98,16 @@ Start:
 }
 void Admin::Change_user(vector<Tester>& mas_testers) {
 	int number; bool noexit = true;
-	Start:
-	cout << "Change user name - type 1" << endl;
-	cout << "Change user login - type 2" << endl;
-	cout << "Change user password - type 3" << endl;
-	cout << "Exit - type 0" << endl;
-	cin >> number;
-	cin.ignore();
+	
 	while (noexit)
 	{
+	Start:
+		cout << "Change user name - type 1" << endl;
+		cout << "Change user login - type 2" << endl;
+		cout << "Change user password - type 3" << endl;
+		cout << "Exit - type 0" << endl;
+		cin >> number;
+		cin.ignore();
 		if (number == 1) {
 			cout << "Enter username to change" << endl;
 			string _name;
@@ -211,6 +212,7 @@ void Admin::Menu_admin(vector<Tester>& mas_testers) {
 			Admin::Change_user(mas_testers);
 			break;
 		case 0:
+			new_obj.Save(mas_testers);
 			noexit = false;
 			break;
 		default:

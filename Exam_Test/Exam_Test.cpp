@@ -20,10 +20,13 @@ int main()
 
     int new_tested;
     int num;
+
 Entry_start:
+
     cout << "Login as administrator - enter 1: " << endl;
     cout << "Login as testee - enter 2: " << endl;
     cout << "Exit 3: " << endl;
+
     cin >> num;
     cin.ignore();
 
@@ -90,6 +93,13 @@ Entry_start:
             break;
         }
 
+    case 3:
+
+        admin.Save();
+        tester1.Save(mas_testers);
+        system("Exit");
+
+        break;
     
 
 

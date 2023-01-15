@@ -175,6 +175,7 @@ void Admin::Menu_admin(vector<Tester>& mas_testers) {
 		cout << "Create user - type 1" << endl;
 		cout << "Delete user - type 2" << endl;
 		cout << "Change user - type 3" << endl;
+		cout << "Show users - type 4" << endl;
 		cout << "Exit - type 0" << endl;
 		cin >> choise;
 		cin.ignore();
@@ -210,6 +211,13 @@ void Admin::Menu_admin(vector<Tester>& mas_testers) {
 		}
 		case 3:
 			Admin::Change_user(mas_testers);
+			break;
+
+		case 4:
+			for (size_t i = 0; i < mas_testers.size(); i++)
+			{
+				mas_testers[i].Show(mas_testers[i]);
+			}
 			break;
 		case 0:
 			new_obj.Save(mas_testers);

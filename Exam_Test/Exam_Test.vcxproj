@@ -130,7 +130,6 @@
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Exam_Test.cpp" />
     <ClCompile Include="People.cpp" />
-    <ClCompile Include="Test.cpp" />
     <ClCompile Include="Tester.cpp" />
   </ItemGroup>
   <ItemGroup>

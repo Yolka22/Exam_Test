@@ -3,3 +3,18 @@ F = mg
 F = ma
 F = mq
 F = ar
+What is an atom not made of?
+from ions
+from neutrons
+from protons
+from electrons
+What is the majority charge carrier in an n-type semiconductor?
+electrons
+"holes"
+positive ions
+protons
+What material is used to make microprocessors?
+silicon
+copper
+germanium
+selenium

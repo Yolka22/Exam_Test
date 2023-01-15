@@ -46,31 +46,38 @@ void Tester::Read(vector<Tester>& mas_testers) {
 
 
 	ifstream in("Tester.txt", ios::in | ios::binary);
-	string test,test1;
-	string tpm_type;
-	string tpm_name;
-	string tpm_login;
-	string tpm_password;
+
+
+	string trash;
 	int size;
+
+
 	if (in.is_open()) {
 
 		Tester *tmp = new Tester();
 		
-		while (in>> tmp->type, getline(in, test1), getline(in, tmp->name,'\n'), in >> tmp->login >> tmp->password) {
+		while (getline(in, tmp->type), getline(in, tmp->name, '\n'), in >> tmp->login >> tmp->password) {
 			
 			in >> size;
 			if (size > 0) {
+
             tmp->info.resize(size);
-			for (int i = 0; i < size; i++)
-			{
+
+
+			for (int i = 0; i < size; i++){
 				in >> tmp->info[i].mark;
-				getline(in, test);
-				getline(in, tmp->info[i].test_name,'\r');
+
+
+				getline(in, trash);
+				getline(in, tmp->info[i].test_name,'\n');
 				
 			}
 			
 			}
+
 			mas_testers.push_back(*tmp);
+
+
 			tmp->info.clear();
 		}
 			
@@ -182,7 +189,6 @@ Tester_menu:
 
 	case 3:
 		
-		int a = 0;
 
 		break;
 	}
